@@ -3,6 +3,7 @@
 <p align="center">🌱 신선한 농산물을 사고 파는 플랫폼입니다.</p>
 <p align="center">🚀 현대적인 기술을 활용하여 원활한 사용자 경험을 제공합니다.</p>
 <p align="center">🗓️ 개발 기간: <strong>2024-09-27 ~ 2024-10-04 (8일)</strong></p>
+<p align="center">👨‍👧‍👧 개발 인원: <strong>6명</strong></p>
 
 <hr/>
 
