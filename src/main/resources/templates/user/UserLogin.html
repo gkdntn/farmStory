@@ -1,0 +1,105 @@
+<th:block th:include="user/User_header.html"/>
+    <title>Login</title>
+        <main>
+            <div class="mainIn">
+                <section class="login">
+                    <form action="#" method="post">
+                        <table border="0">
+                            <tr>
+                                <td><img th:src="@{/images/user/login_ico_id.png}" alt="아이디"></td>
+                                <td><input type="text" name="uid" placeholder="아이디 입력"></td>
+                            </tr>
+                            <tr>
+                                <td><img th:src="@{/images/user/login_ico_pw.png}" alt="비밀번호"></td>
+                                <td><input type="password" name="pass" placeholder="비밀번호 입력"></td>
+                            </tr>
+                        </table>
+                        <input type="submit" value="로그인" class="btnLogin">
+                        <div class="oahth">
+                            <a th:href="@{/oauth2/authorization/google}">
+                                <img th:src="@{/images/Oauth/web_light_sq_na@1x.png}" alt="google">
+                            </a>
+                            <a th:href="@{/oauth2/authorization/naver}" >
+                                <img th:src="@{/images/Oauth/btnG_아이콘사각.png}" class="naver" alt="google">
+                            </a>
+                            <a th:href="@{/oauth2/authorization/kakao}">
+                                <img th:src="@{/images/Oauth/kakao_login_medium_narrow.png}" class="kakao" alt="google">
+                            </a>
+                        </div>
+                    </form>
+                    <div>
+                        <h3>회원 로그인 안내</h3>
+                        <p>
+                            아직 회원이 아니시면 회원으로 가입하세요.
+                        </p>
+                        <a th:href="@{/user/UserTerms}" class="join_mem">&nbsp회원가입</a>
+                        <a th:href="@{/user/UserFindPass}">&nbsp비밀번호찾기</a>
+                        <a th:href="@{/user/UserFindId}">아이디찾기</a>
+                    </div>
+                </section>
+            </div>
+        </main>
+<!-- 팝업 모달 -->
+<div id="errorModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <p style="text-align: center;">로그인 실패: 아이디 또는 비밀번호가 맞지 않습니다. 다시 확인해주세요.</p>
+    </div>
+</div>
+<style>
+    /* 모달 스타일 */
+    .modal {
+        display: none; /* 기본적으로 숨김 */
+        position: fixed; /* 화면에 고정 */
+        z-index: 1; /* 제일 위에 */
+        left: 0;
+        top: 0;
+        width: 100%; /* 전체 화면 */
+        height: 100%; /* 전체 화면 */
+        overflow: auto; /* 스크롤 가능 */
+        background-color: rgb(0, 0, 0); /* 검정 배경 */
+        background-color: rgba(0, 0, 0, 0.4); /* 투명한 검정 배경 */
+    }
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto; /* 상단에서 15%, 중앙 정렬 */
+        padding: 20px;
+        border: 1px solid #888;
+        width: 50%; /* 너비 80% */
+    }
+
+    .close {
+        color: #aaa;
+        float: right; /* 오른쪽 정렬 */
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: black; /* 마우스 오버 시 색상 변경 */
+        text-decoration: none;
+        cursor: pointer;
+    }
+</style>
+<th:block th:include = "user/User_footer.html"/>
+<script>
+    // 팝업 열기 함수
+    function openModal() {
+        document.getElementById('errorModal').style.display = 'block';
+    }
+
+    // 팝업 닫기 함수
+    function closeModal() {
+        document.getElementById('errorModal').style.display = 'none';
+    }
+
+    // 로그인 실패 시 모달 열기
+    window.onload = function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('error')) {
+            openModal();
+        }
+    };
+</script>
