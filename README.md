@@ -94,5 +94,5 @@
 <hr/>
 
 <h2>📫 연락처</h2>
-<p>📧 이메일: [your-email@example.com]</p>
+<p>📧 이메일: [gkdntn@gmail.com]</p>
 <p>🌐 GitHub: <a href="https://github.com/gkdntn">gkdntn</a></p>
